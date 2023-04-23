@@ -43,5 +43,26 @@ namespace Cemetery.App
                 MessageBox.Show("Не вдалось додати кладовище до бази даних");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cemeteries = CemeteryService.GetAllCemeteries();
+
+                var resultString = "";
+                foreach (var cemetery in cemeteries)
+                {
+                    resultString +=
+                        $"{cemetery.Id} {cemetery.City} {cemetery.Name} {cemetery.CountOfBurial} {cemetery.Year} {cemetery.Address}\n";
+                }
+
+                label7.Text = resultString;
+            }
+            catch
+            {
+                MessageBox.Show("Не вдалось отримати кладовища з бази даних");
+            }
+        }
     }
 }
