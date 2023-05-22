@@ -18,6 +18,19 @@ public static class CemeteryService
         }
     }
 
+    public static void AddImage(string media, Guid id)
+    {
+        var mediaExtensions = new List<string> { ".jpg", ".png", ".jpeg", ".gif", ".webp", ".svg" };
+
+        var extension = Path.GetExtension(media).ToLowerInvariant();
+
+        if (string.IsNullOrEmpty(extension) || !mediaExtensions.Contains(extension))
+            throw new ArgumentException("Невалідний формат");
+
+        var fileName = MediumRepository.AddMedium(media);
+        CemeteryRepository.AddImage(fileName, id);
+    }
+
     public static List<CemeteryResponse> GetAllCemeteries()
     {
         try

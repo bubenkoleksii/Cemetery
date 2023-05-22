@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.buttonImg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -161,11 +163,22 @@
             this.label7.Size = new System.Drawing.Size(0, 15);
             this.label7.TabIndex = 13;
             // 
+            // buttonImg
+            // 
+            this.buttonImg.Location = new System.Drawing.Point(337, 214);
+            this.buttonImg.Name = "buttonImg";
+            this.buttonImg.Size = new System.Drawing.Size(126, 23);
+            this.buttonImg.TabIndex = 14;
+            this.buttonImg.Text = "Додати картинку";
+            this.buttonImg.UseVisualStyleBackColor = true;
+            this.buttonImg.Click += new System.EventHandler(this.buttonImg_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonImg);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
@@ -203,5 +216,7 @@
         private Label label6;
         private Button button1;
         private Label label7;
+        private OpenFileDialog openFileDialog1;
+        private Button buttonImg;
     }
 }

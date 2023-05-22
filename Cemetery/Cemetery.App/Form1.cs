@@ -64,5 +64,23 @@ namespace Cemetery.App
                 MessageBox.Show("Не вдалось отримати кладовища з бази даних");
             }
         }
+
+        private void buttonImg_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var openFileDialog1 = new OpenFileDialog();
+
+                if (openFileDialog1.ShowDialog() != DialogResult.OK)
+                    return;
+
+                var filePath = openFileDialog1.FileName;
+                CemeteryService.AddImage(filePath, Guid.Parse("3B575AFB-9BFE-4B5E-9DF6-181A7240ED10"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

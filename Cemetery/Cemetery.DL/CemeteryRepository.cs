@@ -49,6 +49,24 @@ public static class CemeteryRepository
         }
     }
 
+
+    public static void AddImage(string fileName, Guid id)
+    {
+        try
+        {
+            var queryString = $"UPDATE Cemetery SET [Image] = '{fileName}' WHERE Id = '{id}'";
+            var command = new SqlCommand(queryString, Db.GetConnectionString());
+
+            Db.OpenConnection();
+            command.ExecuteNonQuery();
+            Db.CloseConnection();
+        }
+        catch
+        {
+            throw new Exception("Cannot add image cemetery to database");
+        }
+    }
+    
     public static void InsertCemetery(CemeteryRequest cemeteryRequest)
     {
         try
